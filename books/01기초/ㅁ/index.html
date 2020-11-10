@@ -1,0 +1,109 @@
+<p align="center"><font color="#009e25"><strong><strong><font color="#009e25">ㅁ. 커스텀 커널이란?</font></strong></strong></font></p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">안드로이드는 리눅스를 기반으로 하기 때문에 커널도 마찬가지로 리눅스 커널을 씁니다.</p>
+
+<p align="center">커널은 OS의 심장이자, OS를 규정짓는 매우 중요한 부분입니다. 하드웨어의 자원을 자원이 필요한 프로세스에 나눠주고, 덩달아 프로세스 제어(태스크 매니저), 메모리 제어, 프로그램이 운영체제에 요구하는 시스템 콜등을 수행하는 부분으로 운영체제 맨 하부에서 돌아갑니다.</p>
+
+<p align="center">때문에 커널 없이는 그 어떤 OS를 만들수도 없고, 돌릴수도 없습니다.</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">많이들 아시는&nbsp;<font color="#3a32c3"><strong>블루스크린</strong></font>도 커널이 잘못되었을 때 일어나는 현상이라고 보시면 됩니다.</p>
+
+<p align="center">안드로이드 롬에도 포함이 되어있고, zImage안에 들어있다고 보면 됩니다.</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center"><font color="#009e25"><strong>커스텀 커널이란?</strong></font></p>
+
+<p align="center">구글에서 배포하는 안드로이드 순정에 사용자가 입맛에 맞게 수정한 것을 커스텀 커널이라 합니다.</p>
+
+<p align="center">엄밀히 말하자면 제조사가 수정한 것도 커스텀 커널이라고 볼 수 있습니다,</p>
+
+<p align="center">커스텀 커널의 종류는 수없이 많으며, 사용자가 소스만 있으면 롬과 마찬가지로 빌드하고 디버깅 할 수 있습니다.</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">베가의 커널 소스는&nbsp;<a href="http://opensource.pantech.com/" target="_blank">http://opensource.pantech.com/</a>에 있으며, 아직 업로드 되지 않은 소스도 많이 존재합니다. 또 껍데기만 내놓은 소스도 존재합니다. 제조사가 제조사인지라...<strike>&nbsp;심지어 커널 소스 공개가 의무가 아니었으면 안올렸을지도 모릅니다.</strike></p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">커널을 커스터마이징해서 여러가지를 할 수 있습니다.</p>
+
+<p align="center">예를 들어 음질을 향상 시킨다던지 (Voodoo sound), 화면 색깔을 조정한다던지 (Voodoo Display)하는 것을 자유자재로 할 수 있습니다.</p>
+
+<p align="center">또한 젤리빈에서 지원되지 않는 CRT꺼짐효과도 커널을 수정해서 Enable할 수 있고, 지원되지 않는 CPU정책을 추가 할 수 있습니다.</p>
+
+<p align="center">커널을 바꿈으로 인해 속도가 빨라 질 수도 있습니다.</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center"><font color="#ff0000"><strong>다만 이런 작업은 고난이도의 것이기 때문에, 초보자들은 그냥 지나치셔도 됩니다.</strong></font></p>
+
+<p align="center"><font color="#ff0000"><strong>만약 어느 능력자가 나와서 커스텀 커널을 배포한다면, 유저들은 그냥 올리시면 됩니다.</strong></font></p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center"><strong><font color="#009e25">Q. 커스텀 커널는 어떻게 휴대폰에 적용시키죠?</font></strong></p>
+
+<p align="center">A-1. 제일 쉬운 방법.</p>
+
+<p align="center">커널 이미지 파일을 휴대폰에 내려받으신 후, Wide Studio팀의 &#39;WS Dongho&#39;님께서 만드신 Jumploader을 마켓에서 받아주세요.</p>
+
+<p align="center">먼저, 자신의 폰의 부트 파티션을 셋팅해줘야 하는데요.. 파티션 설정을 누른 후, 부트 파티션 란에 자신의 폰의 리커버리 파티션을 적어주시고 그 칸의 오른쪽에 있는 확인을 눌러주시면 됩니다.(ex - 베가레이서,베가No.5 : mmcblk0p8&nbsp;<b>이것은 폰마다 다르므로 검색해주세요</b>.)</p>
+
+<p align="center">그 다음 플래싱 버튼을 누른 후, (루팅이 되어 있어야 합니다!) 부트 이미지 파일을 선택 후 리커버리 버튼을 클릭 후 잠시 기다리시면 적용이 됩니다!</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">A-2. 그리고 제일 기본이 되는 방법</p>
+
+<p align="center">fastboot flash boot를 이용하는 것입니다.</p>
+
+<p align="center">fastboot 드라이버를 설치한 후, fastboot 툴을 다운받습니다. 그리고 명령프롬프트를 열어서 fastboot flash boot boot.img(플래싱할 리커버리 이미지)를 타이핑 합니다. 그리고 엔터를 눌러주면 리커버리가 &quot;플래싱&quot;됩니다.</p>
+
+<p align="center">이 방법의 경우, 부트로더가 언락되어야만 플래싱 할 수 있습니다.</p>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A-3. 조금 위험할수도 있는 방법</p>
+
+<p align="center">터미널(<font face="나눔고딕, 돋움">terminal emulator)</font>을 이용해서 적용할수도 있습니다. 루팅 권한이 있어야 합니다.</p>
+
+<p align="center">터미널을 실행시키신후 다음과 같은 명령어를 입력해 주세요.(sdcard에 recovery.img가 있다는 가정하에)</p>
+
+<p align="center"><font face="나눔고딕, 돋움">dd if=/sdcard/boot.img of=/dev/block/(부트 파티션 경로)</font></p>
+
+<p align="center"><font face="나눔고딕, 돋움">베가레이서와 베가No.5의 경우 부트 파티션이 mmcblk0p8입니다. 그런데 이 방법을 쓰다가 자칫 잘못해서 다른 파티션에 써 넣으면 (부트로더 파티션이라던지...) 폰이 아예 안켜지는 일명 &#39;벽돌&#39; 이 될 수도 있으니 주의하세요.</font></p>
+
+<p align="center"><font face="나눔고딕, 돋움">(A-1의 방법과 큰차이는 없습니다.)</font></p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">만약 되지 않았다면 처음부터 차근차근히 따라해 주십시오 ^_^</p>
+
+<p>&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">----------------------------추가,수정 바람-------------------------</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center"><img id="userImg5557705" name="cafeuserimg" onclick="popview(this)" src="https://cafeptthumb-phinf.pstatic.net/20130204_197/changwan28_1359958202719dqyA4_PNG/SDA4.png?type=w740" /></p>
