@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<title>SDA 카페북</title>
+
+<style>
+div.menuman {
+  position: absolute;
+  top: 99px;
+  left: 51px;
+}
+
+div.contentman {
+  position: absolute;
+  top: 129px;
+  left: 267px;
+}
+
+div.linkman {
+  position: absolute;
+  top: 32px;
+  left: 823px;
+}
+</style>
+
+</head>
+
+<body background="theme_def.png">
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("contentframe").contentWindow.location.href
+  window.open(x);
+}
+</script>
+
+<div class="menuman" id="menu"><iframe id="menuframe" width="180px" height="413px" name="menuframe" src="menu.html" frameborder="0"></iframe></div>
+<div class="contentman" id="content"><iframe id="contentframe" width="493px" height="397px" name="contentframe" src="main.html" frameborder="0"></iframe></div>
+<div class="linkman" id="link"><iframe id="linkframe" width="142px" height="483px" name="linkframe" src="link.html" frameborder="0"></iframe></div>
+
+</body>
+
+</html>
